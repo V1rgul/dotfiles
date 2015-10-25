@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+files=(
+	.bashrc
+	.bash_aliases 
+
+	.oh-my-zsh
+	.zshrc
+
+	.gconf/apps/gnome-terminal/profiles
+
+	.fonts
+)
+
+command=$1
+
+usage()
+{
+cat << EOF
+usage: $0 {save|install}
+	save	: Save current dotfiles to "files" folder
+	install	: Install dotfiles in "files" folder to \$HOME
+EOF
+}
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+savedir="${DIR}/files"
+
+set -e
+
+for f in ${files[@]}; do
+	if [ "$command" == "save" ]; then
+		from="${HOME}/${f}"
+		to="${savedir}/${f}"
+	elif [ "$command" == "install" ]; then
+		from="${savedir}/${f}"
+		to="${HOME}/${f}"
+	else
+		usage
+		exit -1
+	fi
+	todir=$(dirname "${to}" | head -n 1)
+	mkdir -p $todir
+	rsync -rhL "$from" "$todir"
+	#--out-format="%f"
+	echo "$f"
+done
+
+
+if [ "$command" == "save" ]; then
+	git status ${savedir}
+fi
+
+
+
