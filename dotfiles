@@ -4,12 +4,12 @@ files=(
 	.bashrc
 	.bash_aliases 
 
-	.oh-my-zsh
+#	.oh-my-zsh
 	.zshrc
 
-	.gconf/apps/gnome-terminal/profiles
+#	.gconf/apps/gnome-terminal/profiles
 
-	.fonts
+#	.fonts
 )
 
 command=$1
@@ -17,9 +17,10 @@ command=$1
 usage()
 {
 cat << EOF
-usage: $0 {save|install}
+usage: $0 {save|install|show}
 	save	: Save current dotfiles to "files" folder
 	install	: Install dotfiles in "files" folder to \$HOME
+	show	: show differences beetween \$Home and "files" folder
 EOF
 }
 
@@ -28,8 +29,9 @@ savedir="${DIR}/files"
 
 set -e
 
+
 for f in ${files[@]}; do
-	if [ "$command" == "save" ]; then
+	if [ "$command" == "save" ] || [ "$command" == "show" ]; then
 		from="${HOME}/${f}"
 		to="${savedir}/${f}"
 	elif [ "$command" == "install" ]; then
@@ -39,13 +41,17 @@ for f in ${files[@]}; do
 		usage
 		exit -1
 	fi
-	todir=$(dirname "${to}" | head -n 1)
-	mkdir -p $todir
-	rsync -rhL "$from" "$todir"
-	#--out-format="%f"
-	echo "$f"
-done
 
+	echo "$f"
+	if [ "$command" == "show" ]; then
+		colordiff -u --new-file --recursive --minimal "$to" "$from"
+	else
+		todir=$(dirname "${to}" | head -n 1)
+		mkdir -p $todir
+		rsync -rhL "$from" "$todir"
+	fi
+	#--out-format="%f"
+done
 
 if [ "$command" == "save" ]; then
 	git status ${savedir}
