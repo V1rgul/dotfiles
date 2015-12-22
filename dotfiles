@@ -4,12 +4,12 @@ files=(
 	.bashrc
 	.bash_aliases 
 
-#	.oh-my-zsh
+	.oh-my-zsh
 	.zshrc
 
-#	.gconf/apps/gnome-terminal/profiles
+	.gconf/apps/gnome-terminal/profiles
 
-#	.fonts
+	.fonts
 )
 
 command=$1
