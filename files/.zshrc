@@ -11,11 +11,15 @@ export ZSH=/home/v1rgul/.oh-my-zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="awesome-fontconfig"
-POWERLEVEL9K_HOME_ICON="" # remove house icon
+POWERLEVEL9K_HOME_ICON="" # remove home icon
+POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
+
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
 #POWERLEVEL9K_SHOW_CHANGESET=true
 
 
