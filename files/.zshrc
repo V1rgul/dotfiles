@@ -50,7 +50,7 @@ HYPHEN_INSENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 # /!\ do not use with zsh-autosuggestions
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -67,9 +67,9 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
 # /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end 
-#disabled history-substring-search
+#disabled history-substring-search  zsh-autosuggestions
 
 # User configuration
 
@@ -130,11 +130,12 @@ ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
 
 
 #enable zsh-autosuggestions
-AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
+#COMPLETION_WAITING_DOTS="false"
+#AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
+#zle-line-init() {
+#    zle autosuggest-start
+#}
+#zle -N zle-line-init
 
 
 
