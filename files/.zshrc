@@ -11,6 +11,7 @@ export ZSH=/home/v1rgul/.oh-my-zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="awesome-fontconfig"
+
 POWERLEVEL9K_HOME_ICON="" # remove home icon
 POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
 
@@ -18,7 +19,7 @@ POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir rbenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
 #POWERLEVEL9K_SHOW_CHANGESET=true
 
@@ -49,7 +50,8 @@ HYPHEN_INSENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
+# /!\ do not use with zsh-autosuggestions
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -65,8 +67,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast colored-man colorize command-not-found cp dirhistory history-substring-search autojump sudo zsh-syntax-highlighting)
-# /!\ zsh-syntax-highlighting must be at the end 
+plugins=(gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting zsh-autosuggestions)
+# /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end 
+#disabled history-substring-search
 
 # User configuration
 
@@ -125,3 +128,10 @@ ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
+
+#enable zsh-autosuggestions
+AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
