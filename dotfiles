@@ -11,6 +11,7 @@ files=(
 	.gconf/apps/gnome-terminal/profiles
 
 	.fonts
+	.config/fontconfig
 )
 
 command=$1
