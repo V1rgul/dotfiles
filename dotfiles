@@ -25,34 +25,62 @@ usage: $0 {save|install|show}
 EOF
 }
 
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 savedir="${DIR}/files"
+overrided=".git.override"
+unoverrided=".git"
+
+searchRename(){
+	# from, to
+	#echo "CALLED ---------------------------- searchRename $1 $2"
+	#tree -a -L 2 ${savedir}
+	found=$(find ${savedir} -type d -name "${1}")
+	#echo "${found}"
+	for f in ${found[@]}; do
+		#echo "MV ${f} ${f/\/${1}/\/${2}}"
+		mv ${f} ${f/\/${1}/\/${2}}
+	done
+	#-exec bash -c 'echo MV "$1" "${1/\/'${1}'/\/'${2}'}" ; mv "$1" "${1/\/'${1}'/\/'${2}'}"' -- {} \;
+	#tree -a -L 2 ${savedir}
+}
 
 set -e
 
+if [ "$command" == "save" ] || [ "$command" == "show" ]; then
+	from="${HOME}"
+	to="${savedir}"
+	fromgit="$unoverrided"
+	togit="$overrided"
+elif [ "$command" == "install" ]; then
+	from="${savedir}"
+	to="${HOME}"
+	fromgit="$overrided"
+	togit="$unoverrided"
+else
+	usage
+	exit -1
+fi
+
+searchRename "$overrided" "$unoverrided"
 
 for f in ${files[@]}; do
-	if [ "$command" == "save" ] || [ "$command" == "show" ]; then
-		from="${HOME}/${f}"
-		to="${savedir}/${f}"
-	elif [ "$command" == "install" ]; then
-		from="${savedir}/${f}"
-		to="${HOME}/${f}"
-	else
-		usage
-		exit -1
-	fi
 
+	Lfrom="${from}/${f}"
+	Lto="${to}/${f}"
 	echo "$f"
 	if [ "$command" == "show" ]; then
-		colordiff -u --new-file --recursive --minimal "$to" "$from"
+		echo "$Lfrom -> $Lto"
+		#colordiff -u --new-file --recursive --minimal "$Lto" "$Lfrom"
 	else
-		todir=$(dirname "${to}" | head -n 1)
+		todir=$(dirname "${Lto}" | head -n 1)
 		mkdir -p $todir
-		rsync -rhL "$from" "$todir"
+		rsync -rhL "$Lfrom" "$todir"
 	fi
 	#--out-format="%f"
 done
+
+searchRename "$unoverrided" "$overrided"
 
 if [ "$command" == "save" ]; then
 	git status ${savedir}
