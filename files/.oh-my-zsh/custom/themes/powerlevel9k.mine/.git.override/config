@@ -1,0 +1,20 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:V1rgul/powerlevel9k.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "next"]
+	remote = origin
+	merge = refs/heads/next
+[remote "bhilburn/powerlevel9k"]
+	url = git@github.com:bhilburn/powerlevel9k.git
+	fetch = +refs/heads/*:refs/remotes/bhilburn/powerlevel9k/*
+[remote "bhilburn"]
+	url = git@github.com:bhilburn/powerlevel9k.git
+	fetch = +refs/heads/*:refs/remotes/bhilburn/*

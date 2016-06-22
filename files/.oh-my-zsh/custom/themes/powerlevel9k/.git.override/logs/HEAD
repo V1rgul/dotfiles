@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 b2e6beec514c6e186dd825a704dfdc399b0e60e4 v1rgul <v1rgul.42@gmail.com> 1445672278 +0200	clone: from git@github.com:bhilburn/powerlevel9k.git
+b2e6beec514c6e186dd825a704dfdc399b0e60e4 e8771a7039d8cde54321c044a3a779c43783d144 v1rgul <v1rgul.42@gmail.com> 1445672303 +0200	checkout: moving from master to next
+e8771a7039d8cde54321c044a3a779c43783d144 1eadf5ad76d0d9a9a5c4f6e6b2cde47c018363c0 v1rgul <v1rgul.42@gmail.com> 1448382649 +0100	pull: Fast-forward
+1eadf5ad76d0d9a9a5c4f6e6b2cde47c018363c0 3fea92369f11797077f7a92468814ab1ee0238c3 v1rgul <v1rgul.42@gmail.com> 1448700792 +0100	pull: Fast-forward
+3fea92369f11797077f7a92468814ab1ee0238c3 0059f9a0668b21ae358c7e8bdce6c3905f70152b v1rgul <v1rgul.42@gmail.com> 1450793030 +0100	pull: Fast-forward
+0059f9a0668b21ae358c7e8bdce6c3905f70152b b2e6beec514c6e186dd825a704dfdc399b0e60e4 v1rgul <v1rgul.42@gmail.com> 1453086316 +0100	checkout: moving from next to master
+b2e6beec514c6e186dd825a704dfdc399b0e60e4 c84da5e744db960a17c09485720ff1c094b1f6e8 v1rgul <v1rgul.42@gmail.com> 1453086323 +0100	pull: Fast-forward
+c84da5e744db960a17c09485720ff1c094b1f6e8 0059f9a0668b21ae358c7e8bdce6c3905f70152b v1rgul <v1rgul.42@gmail.com> 1453089033 +0100	checkout: moving from master to next
+0059f9a0668b21ae358c7e8bdce6c3905f70152b 67895cc5da1fe479d0ae321fba750e199758eee4 v1rgul <v1rgul.42@gmail.com> 1453089038 +0100	pull: Fast-forward
+67895cc5da1fe479d0ae321fba750e199758eee4 11d00ce71316153f7cf2dabf5a40b0f24064d9e8 v1rgul <v1rgul.42@gmail.com> 1453091616 +0100	checkout: moving from next to pr/200
+11d00ce71316153f7cf2dabf5a40b0f24064d9e8 c84da5e744db960a17c09485720ff1c094b1f6e8 v1rgul <v1rgul.42@gmail.com> 1453424719 +0100	checkout: moving from pr/200 to master
+c84da5e744db960a17c09485720ff1c094b1f6e8 29b346930b8d214b2fe5ddd53f574883958ae70c v1rgul <v1rgul.42@gmail.com> 1453424731 +0100	checkout: moving from master to pr/200
+29b346930b8d214b2fe5ddd53f574883958ae70c c84da5e744db960a17c09485720ff1c094b1f6e8 v1rgul <v1rgul.42@gmail.com> 1454880541 +0100	checkout: moving from pr/200 to master
+c84da5e744db960a17c09485720ff1c094b1f6e8 d5ac1735daac1d3b9d6b4d965f744e03f248b0d8 v1rgul <v1rgul.42@gmail.com> 1454880558 +0100	pull: Fast-forward
+d5ac1735daac1d3b9d6b4d965f744e03f248b0d8 2630526df8275aebe3c5c65af188169ef3e1c94e v1rgul <v1rgul.42@gmail.com> 1457947416 +0100	pull: Fast-forward
+2630526df8275aebe3c5c65af188169ef3e1c94e 0b57ee3669dd2d6d536ecff116345a929f6b068c v1rgul <v1rgul.42@gmail.com> 1464000492 +0200	pull: Fast-forward
+0b57ee3669dd2d6d536ecff116345a929f6b068c cef8c65586c92a6c696b497c0d4ddd6610db203e v1rgul <v1rgul.42@gmail.com> 1464995653 +0200	pull: Fast-forward

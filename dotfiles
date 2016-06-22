@@ -28,15 +28,14 @@ EOF
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 savedir="${DIR}/files"
-overrided=".git.override"
-unoverrided=".git"
+
 
 searchRename(){
 	# from, to
 	#echo "CALLED ---------------------------- searchRename $1 $2"
 	#tree -a -L 2 ${savedir}
-	found=$(find ${savedir} -type d -name "${1}")
-	#echo "${found}"
+	found=$(find ${savedir} -name "${1}")
+	echo "${found}"
 	for f in ${found[@]}; do
 		#echo "MV ${f} ${f/\/${1}/\/${2}}"
 		mv ${f} ${f/\/${1}/\/${2}}
@@ -44,25 +43,33 @@ searchRename(){
 	#-exec bash -c 'echo MV "$1" "${1/\/'${1}'/\/'${2}'}" ; mv "$1" "${1/\/'${1}'/\/'${2}'}"' -- {} \;
 	#tree -a -L 2 ${savedir}
 }
+override(){
+	# override or unoverride
+	if   [ "$1" == "override" ]; then
+		searchRename ".git" ".git.override"
+		searchRename ".gitignore" ".gitignore.override"
+	elif [ "$1" == "unoverride" ]; then
+		searchRename ".git.override" ".git" 
+		searchRename ".gitignore.override" ".gitignore" 
+	else
+		echo "Error calling override"
+	fi
+}
 
 set -e
 
 if [ "$command" == "save" ] || [ "$command" == "show" ]; then
 	from="${HOME}"
 	to="${savedir}"
-	fromgit="$unoverrided"
-	togit="$overrided"
 elif [ "$command" == "install" ]; then
 	from="${savedir}"
 	to="${HOME}"
-	fromgit="$overrided"
-	togit="$unoverrided"
 else
 	usage
 	exit -1
 fi
 
-searchRename "$overrided" "$unoverrided"
+override "unoverride"
 
 for f in ${files[@]}; do
 
@@ -75,12 +82,12 @@ for f in ${files[@]}; do
 	else
 		todir=$(dirname "${Lto}" | head -n 1)
 		mkdir -p $todir
-		rsync -rhL "$Lfrom" "$todir"
+		rsync -rL "$Lfrom" "$todir"
 	fi
 	#--out-format="%f"
 done
 
-searchRename "$unoverrided" "$overrided"
+override "override"
 
 if [ "$command" == "save" ]; then
 	git status ${savedir}
