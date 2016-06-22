@@ -70,8 +70,8 @@ for f in ${files[@]}; do
 	Lto="${to}/${f}"
 	echo "$f"
 	if [ "$command" == "show" ]; then
-		echo "$Lfrom -> $Lto"
-		#colordiff -u --new-file --recursive --minimal "$Lto" "$Lfrom"
+		#echo "$Lfrom -> $Lto"
+		colordiff -u --new-file --recursive --minimal "$Lto" "$Lfrom"
 	else
 		todir=$(dirname "${Lto}" | head -n 1)
 		mkdir -p $todir
