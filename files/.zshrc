@@ -17,13 +17,13 @@ POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
 
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
+POWERLEVEL9K_NVM_BACKGROUND="238"
+POWERLEVEL9K_NVM_FOREGROUND="green"
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
-#POWERLEVEL9K_SHOW_CHANGESET=true
-
-
+POWERLEVEL9K_SHOW_CHANGESET=true
 
 
 
@@ -156,3 +156,5 @@ ranger-cd() {
 }
 zle -N ranger-cd
 bindkey '^o' ranger-cd
+export NVM_DIR="/home/v1rgul/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

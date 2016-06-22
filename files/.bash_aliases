@@ -5,8 +5,50 @@ alias diff="colordiff"
 alias cpr="rsync -avz --progress -h"
 alias mvr="rsync -avz --progress -h --remove-source-files"
 
-export PACPUS_ROOT=/opt/pacpus/0.2.2
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PACPUS_ROOT/bin
-alias PacpusSensor="${PACPUS_ROOT}/bin/PacpusSensor"
-alias DBITEPlayer="${PACPUS_ROOT}/bin/DBITEPlayer"
+alias duh="du -h -d 1 | sort -hr" 
+
+# export PACPUS_ROOT=/opt/pacpus/0.2.2
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PACPUS_ROOT/bin
+# alias PacpusSensor="${PACPUS_ROOT}/bin/PacpusSensor"
+# alias DBITEPlayer="${PACPUS_ROOT}/bin/DBITEPlayer"
+
+function allcolors {
+	# for x in 0 1 4 5 7 8; do
+	# 	for i in {30..37}; do
+	# 		for a in {40..47}; do
+	# 			echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0:37;40m ";
+	# 		done;
+	# 		echo;
+	# 	done;
+	# done
+
+
+	T=${1:-"Test"} #assign T to : $1 if $1 exists, "Test" if not
+
+
+	echo -e "\n                 40m     41m     42m     43m\
+	     44m     45m     46m     47m";
+
+	for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
+	           '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
+	           '  36m' '1;36m' '  37m' '1;37m';
+	  do FG=${FGs// /}
+	  echo -en " $FGs \033[$FG  $T  "
+	  for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+	    do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+	  done
+	  echo;
+	done
+	echo
+}
+
+function allgradients {
+	for code ({000..255}) print -P -- "$code: %F{$code} Test %K{$code} Test %f Test %k"
+}
+
+function testsbpcolors {
+	for code in 31 196 15 244 238 250 148 0; do
+		print -P -- "$code: %F{$code} Test %K{$code} Test %f Test %k";
+	done
+}
 

@@ -6,6 +6,7 @@ files=(
 
 	.oh-my-zsh
 	.zshrc
+	.git-prompt.sh
 
 	.gconf/apps/gnome-terminal/profiles
 
