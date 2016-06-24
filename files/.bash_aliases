@@ -7,12 +7,26 @@ alias mvr="rsync -avz --progress -h --remove-source-files"
 
 alias duh="du -h -d 1 | sort -hr" 
 
+echo -n "Loaded: "
+
+if [ -e "/opt/ros/jade/setup.zsh" ]; then
+	/opt/ros/jade/setup.zsh
+	echo -n "ROS, "
+fi
+
+if [ -d "/opt/anaconda2/bin" ]; then
+	# added by Anaconda2 4.0.0 installer
+	export PATH="/opt/anaconda2/bin:$PATH"
+	echo "Anaconda, "
+fi
+
 # export PACPUS_ROOT=/opt/pacpus/0.2.2
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PACPUS_ROOT/bin
 # alias PacpusSensor="${PACPUS_ROOT}/bin/PacpusSensor"
 # alias DBITEPlayer="${PACPUS_ROOT}/bin/DBITEPlayer"
 
-function allcolors {
+
+allcolors() {
 	# for x in 0 1 4 5 7 8; do
 	# 	for i in {30..37}; do
 	# 		for a in {40..47}; do
@@ -42,13 +56,14 @@ function allcolors {
 	echo
 }
 
-function allgradients {
-	for code ({000..255}) print -P -- "$code: %F{$code} Test %K{$code} Test %f Test %k"
+allgradients() {
+	for code in {000..255}; do print -P -- "$code: %F{$code} Test %K{$code} Test %f Test %k"; done
 }
 
-function testsbpcolors {
+testsbpcolors() {
 	for code in 31 196 15 244 238 250 148 0; do
 		print -P -- "$code: %F{$code} Test %K{$code} Test %f Test %k";
 	done
 }
+
 

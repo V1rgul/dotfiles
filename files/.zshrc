@@ -105,8 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 . ~/.bash_aliases
 
-echo "Loaded ROS"
-.  /opt/ros/jade/setup.zsh
+
 
 
 
