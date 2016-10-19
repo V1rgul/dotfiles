@@ -17,3 +17,6 @@ c4582777fc50162d8b433cabad34f629b0ea9b98 1b1315a777328095cd8b5f364fd4345eeae7c4b
 1b1315a777328095cd8b5f364fd4345eeae7c4bf 222d84300febdc7d59696ac4876cf06e0d535436 v1rgul <v1rgul@v1rgul-Laptop.(none)> 1464000459 +0200	pull --rebase --stat origin master: fast-forward
 222d84300febdc7d59696ac4876cf06e0d535436 dc222704dfac09f7b5eaa8befd7afc39c69e51c5 v1rgul <v1rgul@v1rgul-Laptop.(none)> 1464996015 +0200	pull: fast-forward
 dc222704dfac09f7b5eaa8befd7afc39c69e51c5 7fabc8bca41d4ff7090325116a85513dac852236 v1rgul <v1rgul@v1rgul-Laptop.(none)> 1466613690 +0200	pull: fast-forward
+7fabc8bca41d4ff7090325116a85513dac852236 ac9a8cb687958d1caf05e69bc7aa5f4297383c09 VV <v1rgul@ubuntu.(none)> 1473464459 +0200	pull: fast-forward
+ac9a8cb687958d1caf05e69bc7aa5f4297383c09 57fcee0f1c520a7c5e3aa5e2bde974154cdaf0c3 VV <v1rgul@ubuntu.(none)> 1474900343 +0200	pull --rebase --stat origin master: fast-forward
+57fcee0f1c520a7c5e3aa5e2bde974154cdaf0c3 f94d4e6a4019ed7fcc5470655b1154b3d1f67913 VV <v1rgul@ubuntu.(none)> 1476819316 +0200	pull --rebase --stat origin master: fast-forward

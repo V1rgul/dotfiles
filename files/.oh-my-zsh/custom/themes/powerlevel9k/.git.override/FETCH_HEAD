@@ -1,2 +1,6 @@
 cef8c65586c92a6c696b497c0d4ddd6610db203e		branch 'master' of github.com:bhilburn/powerlevel9k
-467742286f42c1b72f3992121eafd5b5658ffc81	not-for-merge	branch 'next' of github.com:bhilburn/powerlevel9k
+04a6ba813d81b79271c920d5232651402992126f	not-for-merge	branch 'adding-svn-support' of github.com:bhilburn/powerlevel9k
+c4fdc8f70804fea6f543e6bbf3964301e2537e36	not-for-merge	branch 'next' of github.com:bhilburn/powerlevel9k
+92ff27442f8083820dfef918298e291333be2e67	not-for-merge	branch 'removing-zle-funcs' of github.com:bhilburn/powerlevel9k
+d2a1559dbf149345f87e5c2dc3f8136cc5475cc1	not-for-merge	branch 'speed-up-vcs' of github.com:bhilburn/powerlevel9k
+44b9ad05a3f28de5ca657dbf586db1a01aacac52	not-for-merge	branch 'zsh-async-integration' of github.com:bhilburn/powerlevel9k
