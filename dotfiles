@@ -41,7 +41,7 @@ searchRename(){
 		#echo "MV ${f} ${f/\/${1}/\/${2}}"
 		mv ${f} ${f/\/${1}/\/${2}}
 	done
-	#-exec bash -c 'echo MV "$1" "${1/\/'${1}'/\/'${2}'}" ; mv "$1" "${1/\/'${1}'/\/'${2}'}"' -- {} \;
+	#exec bash -c 'echo MV "$1" "${1/\/'${1}'/\/'${2}'}" ; mv "$1" "${1/\/'${1}'/\/'${2}'}"' -- {} \;
 	#tree -a -L 2 ${savedir}
 }
 override(){
@@ -83,6 +83,7 @@ for f in ${files[@]}; do
 	else
 		todir=$(dirname "${Lto}" | head -n 1)
 		mkdir -p $todir
+		#echo RSYNC "$Lfrom" "$todir"
 		rsync -rL "$Lfrom" "$todir"
 	fi
 	#--out-format="%f"
