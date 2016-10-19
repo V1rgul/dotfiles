@@ -8,17 +8,19 @@ alias mvr="rsync -avz --progress -h --remove-source-files"
 alias duh="du -h -d 1 | sort -hr" 
 
 echo -n "Loaded: "
-
 if [ -e "/opt/ros/jade/setup.zsh" ]; then
-	/opt/ros/jade/setup.zsh
+	. /opt/ros/jade/setup.zsh
 	echo -n "ROS, "
 fi
 
 if [ -d "/opt/anaconda2/bin" ]; then
 	# added by Anaconda2 4.0.0 installer
-	export PATH="/opt/anaconda2/bin:$PATH"
+	export PATH="$PATH:/opt/anaconda2/bin"
 	echo "Anaconda, "
 fi
+
+echo ""
+
 
 # export PACPUS_ROOT=/opt/pacpus/0.2.2
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PACPUS_ROOT/bin

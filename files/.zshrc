@@ -67,7 +67,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
+plugins=(tig gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
 # /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end 
 #disabled history-substring-search  zsh-autosuggestions
 
@@ -136,9 +136,25 @@ ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
 #}
 #zle -N zle-line-init
 
+rule () {
+	print -Pn '%F{blue}'
+	local columns=$(tput cols)
+	for ((i=1; i<=columns; i++)); do
+	   printf "\u2588"
+	done
+	print -P '%f'
+}
 
+function _my_clear() {
+	echo
+	rule
+	zle clear-screen
+}
+zle -N _my_clear
+bindkey '^l' _my_clear
 
-
+# '\u2588'
+# █
 
 
 # Ctrl-O opens zsh at the current location, and on exit, cd into ranger's last location.
