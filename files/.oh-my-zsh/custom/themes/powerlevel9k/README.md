@@ -76,10 +76,10 @@ variables to your `~/.zshrc`.
 
 So if you wanted to set these variables manually, you would put the following in
 your `~/.zshrc`:
-
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
-
+```zsh
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
+```
 #### Available Prompt Segments
 The segments that are currently available are:
 
@@ -116,12 +116,15 @@ The segments that are currently available are:
 * **Python Segments:**
     * `virtualenv` - Your Python [VirtualEnv](https://virtualenv.pypa.io/en/latest/).
     * [`anaconda`](#anaconda) - Your active [Anaconda](https://www.continuum.io/why-anaconda) environment.
+    * `pyenv` - Your active python version as reported by the first word of [`pyenv version`](https://github.com/yyuu/pyenv). Note that the segment is not displayed if that word is _system_ i.e. the segment is inactive if you are using system python.
 * **Ruby Segments:**
     * [`chruby`](#chruby) - Ruby environment information using `chruby` (if one is active).
     * [`rbenv`](#rbenv) - Ruby environment information using `rbenv` (if one is active).
     * [`rspec_stats`](#rspec_stats) - Show a ratio of test classes vs code classes for RSpec.
 * **Rust Segments:**
     * `rust_version` - Display the current rust version and [logo](https://www.rust-lang.org/logos/rust-logo-blk.svg).
+* **Swift Segments:**
+    * `swift_version` - Show the version number of the installed Swift.
 
 **Cloud Segments:**
 * **AWS Segments:**
@@ -133,19 +136,28 @@ The segments that are currently available are:
 * [`custom_command`](#custom_command) - Create a custom segment to display the
   output of an arbitrary command.
 * [`todo`](http://todotxt.com/) - Shows the number of tasks in your todo.txt tasks file.
+* `detect-virt` - Virtualization detection with systemd
 
 ---------------------------------------------------------------------------------
 
 
 ##### anaconda
 
-This segment shows your active anaconda environment.
+This segment shows your active anaconda environment. It relies on either the
+`CONDA_ENV_PATH` or the `CONDA_PREFIX` (depending on the `conda` version)
+environment variable to be set which happens when you properly `source
+activate` an environment.
 
-*Note: This segment relies on a perl-regex with lookbehind.
-If `ack` is not available the segment will try to use `grep`.
-Recent versions of grep offer a `-P` option to handle such things.
-On OSX, however, you want to install gnu-grep (e.g. via `brew install grep`)
-and alias the newly installed `ggrep` to `grep`. Alternatively, `brew install ack`.*
+Special configuration variables:
+
+| Variable | Default Value | Description |
+|----------|---------------|-------------|
+|`POWERLEVEL9K_ANACONDA_LEFT_DELIMITER`|"("|The left delimiter just before the environment name.|
+|`POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER`|")"|The right delimiter just after the environment name.|
+
+Additionally the following segment specific parameters can be used to customize
+it: `POWERLEVEL9K_PYTHON_ICON`, `POWERLEVEL9K_ANACONDA_BACKGROUND`, and
+`POWERLEVEL9K_ANACONDA_FOREGROUND`.
 
 ##### aws
 
@@ -177,6 +189,7 @@ requires `acpi` on Linux).
 |`POWERLEVEL9K_BATTERY_DISCONNECTED`|`$DEFAULT_COLOR`|Color to indicate absence of battery.|
 |`POWERLEVEL9K_BATTERY_LOW_THRESHOLD`|`10`|Threshold to consider battery level critical.|
 |`POWERLEVEL9K_BATTERY_LOW_COLOR`|`"red"`|Color to indicate critically low charge level.|
+|`POWERLEVEL9K_BATTERY_VERBOSE`|`true`|Display time remaining next to battery level.|
 
 Note that you can [modify the `_FOREGROUND`
 color](https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt#segment-color-customization)
@@ -188,28 +201,28 @@ The `custom_...` segment allows you to turn the output of a custom command into
 a prompt segment. As an example, if you wanted to create a custom segment to
 display your WiFi signal strength, you might define a custom segment called
 `custom_wifi_signal` like this:
-
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context time battery dir vcs virtualenv custom_wifi_signal)
-    POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="echo signal: \$(nmcli device wifi | grep yes | awk '{print \$8}')"
-    POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="blue"
-    POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="yellow"
-
+```zsh
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context time battery dir vcs virtualenv custom_wifi_signal)
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="echo signal: \$(nmcli device wifi | grep yes | awk '{print \$8}')"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="blue"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="yellow"
+```
 If you prefer, you can also define the function in your `.zshrc` rather than
 putting it in-line with the variable export, as shown above. Just don't forget
 to invoke your function from your segment! Example code that achieves the same
 result as the above:
+```zsh
+zsh_wifi_signal(){
+    local signal=$(nmcli device wifi | grep yes | awk '{print $8}')
+    local color='%F{yellow}'
+    [[ $signal -gt 75 ]] && color='%F{green}'
+    [[ $signal -lt 50 ]] && color='%F{red}'
+    echo -n "%{$color%}\uf230  $signal%{%f%}" # \uf230 is 
+}
 
-    zsh_wifi_signal(){
-            local signal=$(nmcli device wifi | grep yes | awk '{print $8}')
-            local color='%F{yellow}'
-            [[ $signal -gt 75 ]] && color='%F{green}'
-            [[ $signal -lt 50 ]] && color='%F{red}'
-            echo -n "%{$color%}\uf230  $signal%{%f%}" # \uf230 is 
-    }
-
-    POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context time battery dir vcs virtualenv custom_wifi_signal)
-
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context time battery dir vcs virtualenv custom_wifi_signal)
+```
 The command, above, gives you the wireless signal segment shown below:
 
 ![signal](http://i.imgur.com/hviMATC.png)
@@ -243,11 +256,11 @@ Powerline" fonts, there are additional glyphs, as well:
 | None       | None      | ![](https://cloud.githubusercontent.com/assets/1544760/12183452/40f79286-b58f-11e5-9b8c-ed1343a07b08.png) | Outside of your home folder |
 
 To turn off these icons you could set these variables to an empty string.
-
-    POWERLEVEL9K_HOME_ICON=''
-    POWERLEVEL9K_HOME_SUB_ICON=''
-    POWERLEVEL9K_FOLDER_ICON=''
-
+```zsh
+POWERLEVEL9K_HOME_ICON=''
+POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_FOLDER_ICON=''
+```
 You can limit the output to a certain length by truncating long paths.
 Customizations available are:
 
@@ -259,11 +272,11 @@ Customizations available are:
 
 For example, if you wanted the truncation behavior of the `fish` shell, which
 truncates `/usr/share/plasma` to `/u/s/plasma`, you would use the following:
-
-    POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-    POWERLEVEL9K_SHORTEN_DELIMITER=""
-    POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-
+```zsh
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+```
 In each case you have to specify the length you want to shorten the directory
 to. So in some cases `POWERLEVEL9K_SHORTEN_DIR_LENGTH` means characters, in
 others whole directories.
@@ -277,6 +290,12 @@ The `truncate_with_package_name` strategy gives your directory path relative to 
 ```
 
 the path shown would be `my-cool-project`.  If you navigate to `$HOME/projects/my-project/src`, then the path shown would be `my-cool-project/src`.  Please note that this currently looks for `.git` directory to determine the root of the project.
+
+If you want to customize the directory separator, you could set:
+```zsh
+# You'll need patched awesome-terminal fonts for that example
+POWERLEVEL9K_DIR_PATH_SEPARATOR="%f "$'\uE0B1'" %F"
+```
 
 ##### ip
 
@@ -307,7 +326,8 @@ This segment shows the return code of the last command.
 
 | Variable | Default Value | Description |
 |----------|---------------|-------------|
-|`POWERLEVEL9K_STATUS_VERBOSE`|`true`|Set to false if you wish to hide this segment when the last command completed successfully.|
+|`POWERLEVEL9K_STATUS_VERBOSE`|`true`|Set to false if you wish to not show the error code when the last command returned an error and optionally hide this segment when the last command completed successfully by setting `POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE` to false.|
+|`POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE`|`false`|Set to true if you wish to show this segment when the last command completed successfully in non-verbose mode.|
 
 ##### ram
 
@@ -326,16 +346,16 @@ See [Unit Test Ratios](#unit-test-ratios), below.
 |`POWERLEVEL9K_TIME_FORMAT`|`'H:M:S'`|ZSH time format to use in this segment.|
 
 As an example, if you wanted a reversed time format, you would use this:
-
-    # Reversed time format
-    POWERLEVEL9K_TIME_FORMAT='%D{%S:%M:%H}'
-
+```zsh
+# Reversed time format
+POWERLEVEL9K_TIME_FORMAT='%D{%S:%M:%H}'
+```
 If you are using an "Awesome Powerline Font", you can add a time symbol to this
 segment, as well:
-
-    # Output time, date, and a symbol from the "Awesome Powerline Font" set
-    POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uE868  %d.%m.%y}"
-
+```zsh
+# Output time, date, and a symbol from the "Awesome Powerline Font" set
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uE868  %d.%m.%y}"
+```
 ##### vcs
 
 By default, the `vcs` segment will provide quite a bit of information. Further
@@ -347,8 +367,10 @@ customization is provided via:
 |`POWERLEVEL9K_SHOW_CHANGESET`|`false`|Set to `true` to display the hash / changeset in the segment.|
 |`POWERLEVEL9K_CHANGESET_HASH_LENGTH`|`12`|How many characters of the hash / changeset to display in the segment.|
 |`POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY`|`true`|Set to `false` to not reflect submodule status in the top-level repository prompt.|
+|`POWERLEVEL9K_VCS_HIDE_TAGS`|`false`|Set to `true` to stop tags being displayed in the segment.|
 
-**vcs Symbols**
+
+##### vcs symbols
 
 The `vcs` segment uses various symbols to tell you the state of your repository.
 These symbols depend on your installed font and selected `POWERLEVEL9K_MODE`
@@ -398,3 +420,6 @@ portion of the wiki to get going.
 
 [The Wiki also has a ton of other useful
 information!](https://github.com/bhilburn/powerlevel9k/wiki)
+
+### License
+MIT

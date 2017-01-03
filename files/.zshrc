@@ -14,6 +14,8 @@ POWERLEVEL9K_MODE="awesome-fontconfig"
 
 POWERLEVEL9K_HOME_ICON="" # remove home icon
 POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
+#POWERLEVEL9K_DIR_PATH_SEPARATOR="%f "$'\uE0B1'" %F"
+POWERLEVEL9K_DIR_PATH_SEPARATOR=" "$'\uE0B1'" "
 
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
@@ -68,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(tig gitfast colored-man colorize command-not-found cp dirhistory autojump sudo zsh-syntax-highlighting)
-# /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end 
+# /!\ zsh-syntax-highlighting and then zsh-autosuggestions must be at the end
 #disabled history-substring-search  zsh-autosuggestions
 
 # User configuration

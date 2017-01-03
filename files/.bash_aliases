@@ -7,17 +7,19 @@ alias mvr="rsync -avz --progress -h --remove-source-files"
 
 alias duh="du -h -d 1 | sort -hr" 
 
+alias psg="ps -aux | grep"
+
 echo -n "Loaded: "
 if [ -e "/opt/ros/jade/setup.zsh" ]; then
 	. /opt/ros/jade/setup.zsh
 	echo -n "ROS, "
 fi
 
-if [ -d "/opt/anaconda2/bin" ]; then
-	# added by Anaconda2 4.0.0 installer
-	export PATH="$PATH:/opt/anaconda2/bin"
-	echo "Anaconda, "
-fi
+# if [ -d "/opt/anaconda2/bin" ]; then
+# 	# added by Anaconda2 4.0.0 installer
+# 	export PATH="$PATH:/opt/anaconda2/bin"
+# 	echo "Anaconda, "
+# fi
 
 echo ""
 
@@ -26,6 +28,11 @@ echo ""
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PACPUS_ROOT/bin
 # alias PacpusSensor="${PACPUS_ROOT}/bin/PacpusSensor"
 # alias DBITEPlayer="${PACPUS_ROOT}/bin/DBITEPlayer"
+
+Autopilot=~/Github/Autopilot
+AutopilotROS=~Autopilot/ROS/workspace
+RosLog=~/.ros/log/latest
+: ~Autopilot ~AutopilotROS ~RosLog
 
 
 allcolors() {

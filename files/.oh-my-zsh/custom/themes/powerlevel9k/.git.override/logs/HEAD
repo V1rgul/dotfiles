@@ -15,3 +15,12 @@ c84da5e744db960a17c09485720ff1c094b1f6e8 d5ac1735daac1d3b9d6b4d965f744e03f248b0d
 d5ac1735daac1d3b9d6b4d965f744e03f248b0d8 2630526df8275aebe3c5c65af188169ef3e1c94e v1rgul <v1rgul.42@gmail.com> 1457947416 +0100	pull: Fast-forward
 2630526df8275aebe3c5c65af188169ef3e1c94e 0b57ee3669dd2d6d536ecff116345a929f6b068c v1rgul <v1rgul.42@gmail.com> 1464000492 +0200	pull: Fast-forward
 0b57ee3669dd2d6d536ecff116345a929f6b068c cef8c65586c92a6c696b497c0d4ddd6610db203e v1rgul <v1rgul.42@gmail.com> 1464995653 +0200	pull: Fast-forward
+cef8c65586c92a6c696b497c0d4ddd6610db203e fd9c998f02966229d0dfa576d0056bae21267a2a V1rgul <v1rgul.42@gmail.com> 1479516614 +0100	pull: Fast-forward
+fd9c998f02966229d0dfa576d0056bae21267a2a 1ff9da64d974265ce2f22bd1da4a47d0b8f7ca90 V1rgul <v1rgul.42@gmail.com> 1480791997 +0100	pull: Fast-forward
+1ff9da64d974265ce2f22bd1da4a47d0b8f7ca90 67895cc5da1fe479d0ae321fba750e199758eee4 V1rgul <v1rgul.42@gmail.com> 1480792017 +0100	checkout: moving from master to next
+67895cc5da1fe479d0ae321fba750e199758eee4 afa256f5b32babbd72ae70e888919eb801963873 V1rgul <v1rgul.42@gmail.com> 1480792024 +0100	pull: Fast-forward
+afa256f5b32babbd72ae70e888919eb801963873 11b8545fe283fd7c5b51ef2eef411057d9f3cfe2 V1rgul <v1rgul.42@gmail.com> 1480792312 +0100	pull origin pull/346/head: Fast-forward
+11b8545fe283fd7c5b51ef2eef411057d9f3cfe2 202ab1500727e4f37545eaff849d4f9a52b823c4 V1rgul <v1rgul.42@gmail.com> 1480891163 +0100	pull origin pull/346/head: Fast-forward
+202ab1500727e4f37545eaff849d4f9a52b823c4 7a49c9704dbbb0f1be1f9314410f41bcfd859d5e V1rgul <v1rgul.42@gmail.com> 1481032273 +0100	pull: Fast-forward
+7a49c9704dbbb0f1be1f9314410f41bcfd859d5e 7a49c9704dbbb0f1be1f9314410f41bcfd859d5e V1rgul <v1rgul.42@gmail.com> 1481032279 +0100	checkout: moving from next to next
+7a49c9704dbbb0f1be1f9314410f41bcfd859d5e c86b4009ce09b1d2f274579373fa53648fd1b362 V1rgul <v1rgul.42@gmail.com> 1483389431 +0100	pull: Fast-forward
