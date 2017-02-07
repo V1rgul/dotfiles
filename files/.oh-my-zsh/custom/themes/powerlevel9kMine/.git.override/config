@@ -12,3 +12,6 @@
 [remote "upstream"]
 	url = git@github.com:bhilburn/powerlevel9k.git
 	fetch = +refs/heads/*:refs/remotes/upstream/*
+[branch "\"pr/394\""]
+	merge = refs/pull/394/head
+	remote = upstream

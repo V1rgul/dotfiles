@@ -1,3 +1,15 @@
 0000000000000000000000000000000000000000 4fa3228900f7a096de8df026f062fb8e949977de V1rgul <v1rgul.42@gmail.com> 1485189572 +0100	clone: from git@github.com:V1rgul/powerlevel9k.git
 4fa3228900f7a096de8df026f062fb8e949977de 4fa3228900f7a096de8df026f062fb8e949977de V1rgul <v1rgul.42@gmail.com> 1485189658 +0100	checkout: moving from master to master
 4fa3228900f7a096de8df026f062fb8e949977de a95b4740a6226ed4d1e82305a6f05e59a03ae65e V1rgul <v1rgul.42@gmail.com> 1485189682 +0100	merge upstream/next: Fast-forward
+a95b4740a6226ed4d1e82305a6f05e59a03ae65e eee2871f262ef6aaaa06289eaacaa10b6ec83b28 V1rgul <v1rgul.42@gmail.com> 1485261552 +0100	commit: update fontconfig icons, using awesome-terminal-fonts maps
+eee2871f262ef6aaaa06289eaacaa10b6ec83b28 f16a943d90d1487e000c33d7bb0ab2bd502abb66 V1rgul <v1rgul.42@gmail.com> 1485261872 +0100	commit: fontconfig better network icon
+f16a943d90d1487e000c33d7bb0ab2bd502abb66 f16a943d90d1487e000c33d7bb0ab2bd502abb66 V1rgul <v1rgul.42@gmail.com> 1485971057 +0100	checkout: moving from master to next2
+f16a943d90d1487e000c33d7bb0ab2bd502abb66 b379f03f148d99a0da8c8eb200f17b3007a87e47 V1rgul <v1rgul.42@gmail.com> 1485972071 +0100	checkout: moving from next2 to pr/394
+b379f03f148d99a0da8c8eb200f17b3007a87e47 f16a943d90d1487e000c33d7bb0ab2bd502abb66 V1rgul <v1rgul.42@gmail.com> 1485972238 +0100	checkout: moving from pr/394 to next2
+f16a943d90d1487e000c33d7bb0ab2bd502abb66 70d69932fd738fb90eaa42d33d79cbc029f3fe28 V1rgul <v1rgul.42@gmail.com> 1485972275 +0100	pull upstream pull/394/head: Merge made by the 'recursive' strategy.
+70d69932fd738fb90eaa42d33d79cbc029f3fe28 c2b7efc9505066d805f6fc0d4792eb164767f9a6 V1rgul <v1rgul.42@gmail.com> 1485972521 +0100	commit (merge): Merge commit 'refs/pull/395/head' of github.com:bhilburn/powerlevel9k into next2
+c2b7efc9505066d805f6fc0d4792eb164767f9a6 3c5d84d258b9d9f21d8b4b4bd46c15fbcde2fb76 V1rgul <v1rgul.42@gmail.com> 1486030136 +0100	commit: fontconfig lock icon
+3c5d84d258b9d9f21d8b4b4bd46c15fbcde2fb76 f16a943d90d1487e000c33d7bb0ab2bd502abb66 V1rgul <v1rgul.42@gmail.com> 1486030174 +0100	checkout: moving from next2 to master
+f16a943d90d1487e000c33d7bb0ab2bd502abb66 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1486030230 +0100	commit: fontconfig lock icon
+ed5e8fd6e77e1d53b608246906da5113ac7517d3 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1486030294 +0100	checkout: moving from master to next2
+ed5e8fd6e77e1d53b608246906da5113ac7517d3 26f93518b44b9f068445a6a4a250a611bd4c23c3 V1rgul <v1rgul.42@gmail.com> 1486030368 +0100	commit (merge): Merge commit 'refs/pull/395/head' of github.com:bhilburn/powerlevel9k into next2

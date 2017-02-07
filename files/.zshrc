@@ -9,21 +9,28 @@ export ZSH=/home/v1rgul/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel9kMine/powerlevel9k"
 POWERLEVEL9K_MODE="awesome-fontconfig"
 
-POWERLEVEL9K_HOME_ICON="" # remove home icon
-POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
+POWERLEVEL9K_HOME_ICON=""
+POWERLEVEL9K_HOME_SUB_ICON=""
+POWERLEVEL9K_FOLDER_ICON=""
+#POWERLEVEL9K_HOME_SUB_ICON="" # remove home_sub icon
+POWERLEVEL9K_FOLDER_ICON=""
 #POWERLEVEL9K_DIR_PATH_SEPARATOR="%f "$'\uE0B1'" %F"
 POWERLEVEL9K_DIR_PATH_SEPARATOR=" "$'\uE0B1'" "
+
+#POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
 
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
 POWERLEVEL9K_NVM_BACKGROUND="238"
 POWERLEVEL9K_NVM_FOREGROUND="green"
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="blue"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
 POWERLEVEL9K_SHOW_CHANGESET=true
 
@@ -173,5 +180,10 @@ ranger-cd() {
 }
 zle -N ranger-cd
 bindkey '^o' ranger-cd
+
+
 export NVM_DIR="/home/v1rgul/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+#source etc/git-extra-completion.zsh

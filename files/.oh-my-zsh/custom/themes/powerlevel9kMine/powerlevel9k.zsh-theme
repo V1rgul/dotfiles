@@ -1107,13 +1107,18 @@ prompt_pyenv() {
 
 # Swift version
 prompt_swift_version() {
-  local swift_version=($(swift --version 2>/dev/null))
+  # Get the first number as this is probably the "main" version number..
+  local swift_version=$(swift --version 2>/dev/null | grep -o -E "[0-9.]+" | head -n 1)
   [[ -z "${swift_version}" ]] && return
 
-  # Extract semantic version
-  swift_version=$(echo ${swift_version} | sed -e 's/[^0-9.]*\([0-9.]*\).*/\1/')
-
   "$1_prompt_segment" "$0" "$2" "magenta" "white" "${swift_version}" 'SWIFT_ICON'
+}
+
+# dir_writable: Display information about the user's permission to write in the current directory
+prompt_dir_writable() {
+  if [[ ! -w "$PWD" ]]; then
+    "$1_prompt_segment" "$0_FORBIDDEN" "$2" "red" "226" "" 'LOCK_ICON'
+  fi
 }
 
 ################################################################
@@ -1242,4 +1247,3 @@ prompt_powerlevel9k_setup() {
 }
 
 prompt_powerlevel9k_setup "$@"
-

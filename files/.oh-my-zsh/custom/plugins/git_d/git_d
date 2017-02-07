@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+[ "$GIT_PREFIX" != "" ] && cd "$GIT_PREFIX"
+git status -s $*
+git --no-pager diff --color $* | diff-so-fancy | less --tabs=4 -R

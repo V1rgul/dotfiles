@@ -1,0 +1,134 @@
+== hhighlighter (or just h)
+
+A tiny utility to highlight multiple keywords with different colors
+
+- Idea: Paolo Antinori
+- Based on: *ack* - http://beyondgrep.com/ written by Andy Lester
+
+=== Description
+
+*h* (hhighlighter is just a name to help search engines) is a really tiny helper script meant to highlight keywords in the output of another *nix command:
+
+
+=== Requirements
+
+*h* is just a tiny facade in front of *ack* so you need to install it first.
+
+*What is ack?*
+
+*ack* is a tool like *grep*, optimized for programmers
+
+Designed for programmers with large heterogeneous trees of source code, ack is written purely in portable Perl 5 and takes advantage of the power of Perl's regular expressions.
+
+see: http://beyondgrep.com/
+
+*ack installation*
+
+*ack* is part of many major linux distributions so you should use your *package manager* to install it.
+
+see: http://beyondgrep.com/install/
+
+If you want to install *ack* in a *portable* way ( at the end ack is just a script ) you do it in this way:
+
+`curl http://beyondgrep.com/ack-2.08-single-file > ~/bin/ack && chmod 0755 !#:3`
+
+
+=== Installation Instructions
+
+*h* is implemented as a function in *bash*.
+
+You can install it in *one of these ways*:
+
+- copy and paste `h()` function in your `~/.bashrc`
+- configure your `~/.bashrc` to load the external script with `. /path/to/h.sh`
+
+=== Platform Specifics
+
+*h* has currently been tested only on *bash* and *zsh* on *Linux* and *MacOSX*.
+
+=== Usage
+
+*h* is meant to consume the output of another Linux command via pipe
+
+```
+$ h
+usage: YOUR_COMMAND | h [-i] [-d] args...
+	-i : ignore case
+	-d : disable regexp
+	-n : invert colors
+```
+
+
+=== Configuration
+
+.*h* supports overriding of its default colors via 2 environment variables: `H_COLORS_FG` and `H_COLORS_BG`.
+These variables accepts a *comma separated values* set of http://perldoc.perl.org/Term/ANSIColor.html[Perl Term::ANSIColor] configuration entries. 
+For a table of RGB colors definition check this handy map:
+
+[[img-rgb]]
+image::screenshots/rgb.png[caption="Figure 1: ", title="RGB Map, taken from https://github.com/jbnicolai/ansi-256-colors", alt="RGB Colors Map", width="25%", height="25%", link="https://github.com/jbnicolai/ansi-256-colors"]
+
+Ex.
+
+----
+export H_COLORS_FG="bold black on_rgb520","bold red on_rgb025"
+export H_COLORS_BG="underline bold rgb520","underline bold rgb025"
+echo abcdefghi | h   a b c d
+----
+
+
+=== Examples
+
+.Default colors
+----
+echo "abcdefghijklmnopqrstuvxywz" | h   a b c d e f g h i j k l
+----
+
+.Invert colors
+----
+echo "abcdefghijklmnopqrstuvxywz" | h -n   a b c d e f g h i j k l
+----
+
+.Support for `tail` in follow mode
+----
+tail -F | h keyword1 keyword2
+----
+
+.Case Insensitive
+----
+mvn clean install | h -i failure success
+----
+
+.Disable regular expression
+----
+tail -F my.log | h -d org.apache.camel
+----
+
+.Highlight multiple keys with the same color (using regexp syntax)
+----
+echo abcd | h 'b|d'
+----
+
+
+=== Screenshots
+
+image:screenshots/rainbow.png[Rainbow,scaledwidth="75%"]
+
+
+image:screenshots/jboss-tail.png[Tail,scaledwidth="75%"]
+
+
+image:screenshots/maven.png[Maven,scaledwidth="75%"]
+
+
+image:screenshots/custom.png[Custom Colors,scaledwidth="75%"]
+
+
+=== Demos
+
+[[img-gif]]
+image::screenshots/asciicast.gif[caption="Ascii Cinema Gif", title="Ascii Cinema Gif", alt="Ascii Cinema Gif",  link="screenshots/asciicast.gif"]
+
+
+[[img-asciicast]]
+image::https://asciinema.org/a/5cbw3rnhchsdnxcihtusf48vp.png[caption="Ascii Cinema: ", title="Ascii Cinema", alt="Ascii Cinema Demo",  link="https://asciinema.org/a/5cbw3rnhchsdnxcihtusf48vp"]

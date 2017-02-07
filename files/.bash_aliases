@@ -1,5 +1,6 @@
 
 alias tree="tree -C"
+alias t="tree -L 3 --filelimit=10"
 alias diff="colordiff"
 
 alias cpr="rsync -avz --progress -h"
@@ -8,6 +9,20 @@ alias mvr="rsync -avz --progress -h --remove-source-files"
 alias duh="du -h -d 1 | sort -hr" 
 
 alias psg="ps -aux | grep"
+
+f(){
+	gnome-terminal --working-directory=$PWD
+}
+
+git_d(){
+	git --no-pager diff --color $* | diff-so-fancy | less --tabs=4 -R
+}
+
+source /home/v1rgul/Github/hhighlighter/h.sh
+
+export NVM_DIR="/home/v1rgul/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 
 echo -n "Loaded: "
 if [ -e "/opt/ros/jade/setup.zsh" ]; then
