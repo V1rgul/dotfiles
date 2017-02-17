@@ -4,7 +4,6 @@ files=(
 	.bashrc
 	.bash_aliases 
 
-	.oh-my-zsh
 	.zshrc
 	.git-prompt.sh
 
@@ -16,6 +15,9 @@ files=(
 	.gitconfig
 	
 	Github/hhighlighter
+	
+	
+	.oh-my-zsh
 )
 
 command=$1
