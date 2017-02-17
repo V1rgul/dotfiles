@@ -78,6 +78,8 @@ case $POWERLEVEL9K_MODE in
       PYTHON_ICON                    $'\U1F40D'             # 🐍
       SWIFT_ICON                     ''
       PUBLIC_IP_ICON                 ''
+      LOCK_ICON                      $'\UE138'              # 
+      SSH_ICON                       '(ssh)'
     )
   ;;
   'awesome-fontconfig')
@@ -138,6 +140,8 @@ case $POWERLEVEL9K_MODE in
       PYTHON_ICON                    $'\U1F40D'             # 🐍
       SWIFT_ICON                     ''
       PUBLIC_IP_ICON                 ''
+      LOCK_ICON                      $'\UE138'              # 
+      SSH_ICON                       '(ssh)'
     )
   ;;
   *)
@@ -198,6 +202,8 @@ case $POWERLEVEL9K_MODE in
       PYTHON_ICON                    ''
       SWIFT_ICON                     'Swift'
       PUBLIC_IP_ICON                 ''
+      LOCK_ICON                      $'\UE0A2'
+      SSH_ICON                       '(ssh)'
     )
   ;;
 esac

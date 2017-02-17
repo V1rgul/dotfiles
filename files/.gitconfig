@@ -1,0 +1,13 @@
+[user]
+	name = V1rgul
+	email = v1rgul.42@gmail.com
+[push]
+	default = simple
+[core]
+[alias]
+	graph = !git --no-pager log --oneline --decorate --graph
+	d = !~/.oh-my-zsh/custom/plugins/git_d/git_d
+	l = !git log --oneline --decorate --graph
+	s = status -s
+[core]
+	autocrlf = input

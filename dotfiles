@@ -13,6 +13,8 @@ files=(
 	.fonts
 	.config/fontconfig
 	
+	.gitconfig
+	
 	Github/hhighlighter
 )
 

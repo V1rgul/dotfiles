@@ -12,3 +12,6 @@
 [branch "next"]
 	remote = origin
 	merge = refs/heads/next
+[branch "\"pr/394\""]
+	merge = refs/pull/394/head
+	remote = origin
