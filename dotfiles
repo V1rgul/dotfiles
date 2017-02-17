@@ -91,7 +91,7 @@ for f in ${files[@]}; do
 		todir=$(dirname "${Lto}" | head -n 1)
 		mkdir -p $todir
 		# echo RSYNC "$Lfrom" "$todir"
-		rsync -rL "$Lfrom" "$todir"
+		cp -Rf "$Lfrom" "$todir"
 	fi
 	#--out-format="%f"
 done
