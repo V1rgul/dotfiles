@@ -9,5 +9,6 @@
 	d = !~/.oh-my-zsh/custom/plugins/git_d/git_d
 	l = !git log --oneline --decorate --graph
 	s = status -s
+	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 [core]
 	autocrlf = input
