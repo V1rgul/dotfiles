@@ -9,12 +9,13 @@ export ZSH=/home/v1rgul/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel9kMine/powerlevel9k"
+
 POWERLEVEL9K_MODE="awesome-fontconfig"
 
 
 POWERLEVEL9K_FOLDER_ICON=''
-#POWERLEVEL9K_HOME_SUB_ICON='$(print_icon "HOME_ICON")'
+POWERLEVEL9K_HOME_SUB_ICON='$(print_icon "HOME_ICON")'
 #POWERLEVEL9K_DIR_PATH_SEPARATOR="%f "$'\uE0B1'" %F"
 POWERLEVEL9K_DIR_PATH_SEPARATOR=' $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") '
 

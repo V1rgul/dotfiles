@@ -13,3 +13,6 @@ c2b7efc9505066d805f6fc0d4792eb164767f9a6 3c5d84d258b9d9f21d8b4b4bd46c15fbcde2fb7
 f16a943d90d1487e000c33d7bb0ab2bd502abb66 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1486030230 +0100	commit: fontconfig lock icon
 ed5e8fd6e77e1d53b608246906da5113ac7517d3 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1486030294 +0100	checkout: moving from master to next2
 ed5e8fd6e77e1d53b608246906da5113ac7517d3 26f93518b44b9f068445a6a4a250a611bd4c23c3 V1rgul <v1rgul.42@gmail.com> 1486030368 +0100	commit (merge): Merge commit 'refs/pull/395/head' of github.com:bhilburn/powerlevel9k into next2
+26f93518b44b9f068445a6a4a250a611bd4c23c3 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1489748997 +0100	checkout: moving from next2 to master
+ed5e8fd6e77e1d53b608246906da5113ac7517d3 be7b34b51ed1ddf8bb3cb7cf459d5bc6babcd024 V1rgul <v1rgul.42@gmail.com> 1489749553 +0100	commit (merge): merge: fix conflicts
+be7b34b51ed1ddf8bb3cb7cf459d5bc6babcd024 056614a288024965e021f6e181a950bd5aaa57a4 V1rgul <v1rgul.42@gmail.com> 1489751195 +0100	commit: configurable fontawesome path for awesome-fontconfig

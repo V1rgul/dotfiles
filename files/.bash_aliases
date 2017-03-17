@@ -2,6 +2,7 @@
 alias tree="tree -C"
 alias t="tree -L 3 --filelimit=10"
 alias diff="colordiff"
+alias k="k -h"
 
 alias cpr="rsync -avz --progress -h"
 alias mvr="rsync -avz --progress -h --remove-source-files"
