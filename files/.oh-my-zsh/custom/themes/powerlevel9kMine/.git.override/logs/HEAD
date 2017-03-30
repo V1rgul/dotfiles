@@ -16,3 +16,5 @@ ed5e8fd6e77e1d53b608246906da5113ac7517d3 26f93518b44b9f068445a6a4a250a611bd4c23c
 26f93518b44b9f068445a6a4a250a611bd4c23c3 ed5e8fd6e77e1d53b608246906da5113ac7517d3 V1rgul <v1rgul.42@gmail.com> 1489748997 +0100	checkout: moving from next2 to master
 ed5e8fd6e77e1d53b608246906da5113ac7517d3 be7b34b51ed1ddf8bb3cb7cf459d5bc6babcd024 V1rgul <v1rgul.42@gmail.com> 1489749553 +0100	commit (merge): merge: fix conflicts
 be7b34b51ed1ddf8bb3cb7cf459d5bc6babcd024 056614a288024965e021f6e181a950bd5aaa57a4 V1rgul <v1rgul.42@gmail.com> 1489751195 +0100	commit: configurable fontawesome path for awesome-fontconfig
+056614a288024965e021f6e181a950bd5aaa57a4 4a6479c69a803942521b58734ac693ac6ccb7d18 V1rgul <v1rgul.42@gmail.com> 1490262681 +0100	commit (merge): merge: fix conflicts
+4a6479c69a803942521b58734ac693ac6ccb7d18 4a6479c69a803942521b58734ac693ac6ccb7d18 V1rgul <v1rgul.42@gmail.com> 1490893939 +0200	checkout: moving from master to master

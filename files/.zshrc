@@ -12,6 +12,7 @@ export ZSH=/home/v1rgul/.oh-my-zsh
 ZSH_THEME="powerlevel9kMine/powerlevel9k"
 
 POWERLEVEL9K_MODE="awesome-fontconfig"
+#POWERLEVEL9K_MODE="nerdfont-fontconfig"
 
 
 POWERLEVEL9K_FOLDER_ICON=''
