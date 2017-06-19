@@ -15,3 +15,6 @@
 [branch "\"pr/394\""]
 	merge = refs/pull/394/head
 	remote = origin
+[branch "\"pr/472\""]
+	merge = refs/pull/472/head
+	remote = origin
